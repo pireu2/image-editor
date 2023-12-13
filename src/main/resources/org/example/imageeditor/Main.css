@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: #252525;
+}
+
+.label{
+    -fx-font-size: 25;
+    -fx-font-family: "Montserrat";
+    -fx-font-style: italic;
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+}
+
+#title{
+    -fx-font-weight: bold;
+    -fx-font-size: 50;
+}
