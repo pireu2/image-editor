@@ -3,9 +3,8 @@
 }
 
 .label{
-    -fx-font-size: 25;
+    -fx-font-size: 15;
     -fx-font-family: "Montserrat";
-    -fx-font-style: italic;
     -fx-text-fill: "white";
     -fx-alignment: center;
 }
@@ -13,4 +12,39 @@
 #title{
     -fx-font-weight: bold;
     -fx-font-size: 50;
+}
+
+.menu-item:hover {
+    -fx-background-color: #1565c0;
+}
+
+.menu:hover {
+    -fx-background-color: #1565c0;
+}
+
+.menu-bar{
+    -fx-background-color: #252525;
+}
+
+.menu-bar .context-menu {
+    -fx-background-color: #252525;
+}
+
+.menu .context-menu {
+    -fx-background-color: #252525;
+}
+
+.menu-item {
+    -fx-background-color: #252525;
+}
+
+.menu{
+    -fx-background-color: #252525;
+}
+
+.bottom-label{
+    -fx-font-size: 15;
+    -fx-font-family: "Montserrat";
+    -fx-text-fill: "white";
+    -fx-padding: 0 0 5 5;
 }

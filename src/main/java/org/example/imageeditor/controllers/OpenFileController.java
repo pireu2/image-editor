@@ -3,6 +3,7 @@ package org.example.imageeditor.controllers;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.imageeditor.util.Constants;
@@ -10,16 +11,17 @@ import org.example.imageeditor.util.ControllerMediator;
 import org.example.imageeditor.Main;
 
 import java.io.File;
+import java.text.NumberFormat;
 
 public class OpenFileController {
 
     @FXML
-    Button openButton;
-    FileChooser fileChooser = new FileChooser();
-    private File selectedFile;
+    private VBox vBox;
+    private Stage stage;
 
     public void openFile() throws Exception{
-        Stage currenStage = (Stage) openButton.getScene().getWindow();
+        Stage currentStage = vBox == null ? stage : (Stage) vBox.getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(Constants.PICTURES_DIRECTORY_PATH));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.jpeg", "*.png", "*.bmp", "*.gif"),
@@ -29,17 +31,14 @@ public class OpenFileController {
                 new FileChooser.ExtensionFilter("GIF", "*.gif")
         );
         fileChooser.setTitle("Open File");
-        selectedFile = fileChooser.showOpenDialog(currenStage);
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
         if(selectedFile != null){
             ControllerMediator.getInstance().put(Constants.OPENED_FILE_KEY, selectedFile);
             Main.getMainStage().show();
-            currenStage.close();
+            currentStage.close();
         }
     }
-
-
-    public File getSelectedFile() {
-        System.out.println(selectedFile);
-        return selectedFile;
+    public void setStage(Stage stage){
+        this.stage = stage;
     }
 }

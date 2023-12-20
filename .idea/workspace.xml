@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Remade project">
+    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented file selection and image display functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/SceneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/Main.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/Secondary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/OpenFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/OpenFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/OpenFile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/OpenFile.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -41,27 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.OpenFile.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sebi/AppData/Local/SceneBuilder/SceneBuilder.exe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OpenFile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebi/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\css" />
@@ -143,7 +148,12 @@
       <workItem from="1702501886108" duration="6877000" />
       <workItem from="1702561847285" duration="80000" />
       <workItem from="1702593638615" duration="261000" />
-      <workItem from="1702593956787" duration="7347000" />
+      <workItem from="1702593956787" duration="7583000" />
+      <workItem from="1702980716294" duration="932000" />
+      <workItem from="1702982135847" duration="169000" />
+      <workItem from="1702982516414" duration="363000" />
+      <workItem from="1702989888496" duration="638000" />
+      <workItem from="1703100917150" duration="4461000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />
@@ -153,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702508876123</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implemented file selection and image display functionality">
+      <option name="closed" value="true" />
+      <created>1702601361735</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702601361735</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +179,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remade project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remade project" />
+    <MESSAGE value="Implemented file selection and image display functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented file selection and image display functionality" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

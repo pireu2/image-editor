@@ -1,15 +1,20 @@
 package org.example.imageeditor;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.example.imageeditor.util.Constants;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Optional;
 
 public class Main extends Application {
 
@@ -35,9 +40,24 @@ public class Main extends Application {
             System.err.println("Icon not found");
         }
         scene.getStylesheets().add(Main.class.getResource(Constants.MAIN_CSS_PATH).toExternalForm());
-
+        stage.setOnCloseRequest(event -> {
+            event.consume();
+            exit(stage);
+        });
         stage.setMaximized(true);
-        //stage.setScene(scene);
+        stage.setScene(scene);
         return stage;
+    }
+
+    static public void exit(Stage stage){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Are you sure you want to exit?");
+        alert.setContentText("All unsaved changes will be lost.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.get() == ButtonType.OK){
+            stage.close();
+        }
     }
 }

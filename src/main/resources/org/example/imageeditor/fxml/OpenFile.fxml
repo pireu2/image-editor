@@ -4,9 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="100.0" style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.imageeditor.controllers.OpenFileController">
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="100.0" style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.imageeditor.controllers.OpenFileController">
    <children>
       <Label text="Please select a file" />
-      <Button fx:id="openButton" mnemonicParsing="false" onAction="#openFile" text="Open" />
+      <Button mnemonicParsing="false" onAction="#openFile" text="Open" />
    </children>
 </VBox>
