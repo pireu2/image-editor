@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented file selection and image display functionality">
+    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented open files while having other file opened, created start of menubar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/OpenFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/OpenFileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/ControllerMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/ControllerMediator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/OpenFile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/OpenFile.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,34 +45,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.OpenFile.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebi/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.OpenFile.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sebi/OneDrive - Technical University of Cluj-Napoca/Documents/Code/Idea Projects/image-editor/assets/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources" />
+      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets\images\svg" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\css" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\fxml" />
-      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets\images\svg" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets" />
-      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -153,7 +155,8 @@
       <workItem from="1702982135847" duration="169000" />
       <workItem from="1702982516414" duration="363000" />
       <workItem from="1702989888496" duration="638000" />
-      <workItem from="1703100917150" duration="4461000" />
+      <workItem from="1703100917150" duration="4698000" />
+      <workItem from="1703266799260" duration="5650000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />
@@ -171,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702601361735</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented open files while having other file opened, created start of menubar">
+      <option name="closed" value="true" />
+      <created>1703105454468</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703105454468</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +191,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remade project" />
     <MESSAGE value="Implemented file selection and image display functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented file selection and image display functionality" />
+    <MESSAGE value="Implemented open files while having other file opened, created start of menubar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented open files while having other file opened, created start of menubar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

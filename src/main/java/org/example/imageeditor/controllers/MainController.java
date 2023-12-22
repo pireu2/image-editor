@@ -9,20 +9,35 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.imageeditor.Main;
+import org.example.imageeditor.Tool;
+import org.example.imageeditor.tools.Hand;
+import org.example.imageeditor.tools.Zoom;
 import org.example.imageeditor.util.Constants;
 import org.example.imageeditor.util.ControllerMediator;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 public class MainController {
 
     @FXML
+    private ImageView handIcon;
+    @FXML
+    private ImageView zoomIcon;
+    @FXML
     private BorderPane borderPane;
     @FXML
     private ImageView mainImageView;
+
     @FXML
     private Label bottomLabel;
+    @FXML
+    private Button handButton;
+    @FXML
+    private Button zoomButton;
     @FXML
     private MenuItem saveButton;
     @FXML
@@ -30,16 +45,46 @@ public class MainController {
     @FXML
     private MenuItem openButton;
 
+    private Image initialImage;
     private FileChooser fileChooser;
 
     @FXML
-    public void initialize(){
-        File selectedFile = (File) ControllerMediator.getInstance().get(Constants.OPENED_FILE_KEY);
+    public void initialize() {
+        try{
+            handIcon.setImage(new Image(new FileInputStream(Constants.HAND_ICON_PATH)));
+            zoomIcon.setImage(new Image(new FileInputStream(Constants.ZOOM_ICON_PATH)));
+        }
+        catch (FileNotFoundException e) {
+            System.err.println("Icons not found");
+        }
+
+        File selectedFile = ControllerMediator.getInstance().get(Constants.OPENED_FILE_KEY, File.class);
         if(selectedFile != null){
             bottomLabel.setText(selectedFile.toURI().toString());
-            Image defaultImage = new Image(selectedFile.toURI().toString());
-            mainImageView.setImage(defaultImage);
+            initialImage = new Image(selectedFile.toURI().toString());
+            mainImageView.setImage(initialImage);
         }
+    }
+
+    public void clickHand(){
+        handleTool(new Hand(mainImageView, handButton));
+    }
+    public void clickZoom(){
+        handleTool(new Zoom(mainImageView, zoomButton));
+    }
+
+    public void handleTool(Tool tool){
+        Tool currentTool = ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class);
+        if(currentTool != null){
+            if(currentTool.getClass() == tool.getClass()){
+                currentTool.deactivate();
+                ControllerMediator.getInstance().put(Constants.TOOL_KEY, null);
+                return;
+            }
+            currentTool.deactivate();
+        }
+        ControllerMediator.getInstance().put(Constants.TOOL_KEY, tool);
+        tool.activate();
     }
 
     public void open() throws Exception{
@@ -61,6 +106,14 @@ public class MainController {
     }
     public void save(){
         //TODO implement save
+    }
+
+    public void reset(){
+        mainImageView.setImage(initialImage);
+        mainImageView.setScaleX(1.0);
+        mainImageView.setScaleY(1.0);
+        mainImageView.setTranslateX(0.0);
+        mainImageView.setTranslateY(0.0);
     }
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

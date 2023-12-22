@@ -48,3 +48,14 @@
     -fx-text-fill: "white";
     -fx-padding: 0 0 5 5;
 }
+
+.button{
+    -fx-background-color: #333333;
+    -fx-background-radius: 5px;
+}
+
+.selected-tool{
+    -fx-background-color: #1565c0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}

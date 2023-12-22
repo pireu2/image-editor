@@ -45,11 +45,13 @@ public class ControllerMediator {
 
     /**
      * Retrieves a data object with the specified key.
+     * The returned object is cast to the specified type.
      *
      * @param key the key of the data object to retrieve
-     * @return the data object, or null if no object exists for the key
+     * @param type the Class object of the type to cast the returned object to
+     * @return the data object cast to the specified type, or null if no object exists for the key
      */
-    public Object get(String key){
-        return dataMap.get(key);
+    public <T> T get(String key, Class<T> type){
+        return type.cast(dataMap.get(key));
     }
 }
