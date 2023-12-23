@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -9,12 +10,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.imageeditor.controllers.MainController">
-   <center>
-      <ImageView fx:id="mainImageView" fitHeight="1006.0" fitWidth="1907.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </center>
+    <center>
+        <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+
+                <ImageView fx:id="mainImageView" fitHeight="1006.0" fitWidth="1907.0" pickOnBounds="true" preserveRatio="true" />
+                <Canvas fx:id="mainCanvas" height="1006.0" width="1907.0" />
+            </children>
+        </StackPane>
+    </center>
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -58,10 +66,16 @@
                      <ImageView fx:id="zoomIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                  </graphic>
              </Button>
+             <Button fx:id="brushButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickBrush" prefHeight="50.0" prefWidth="50.0" text="Hand" textAlignment="JUSTIFY" textOverrun="CLIP">
+                 <graphic>
+                     <ImageView fx:id="brushIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                 </graphic>
+             </Button>
          </children>
          <padding>
             <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
          </padding>
       </VBox>
    </left>
+
 </BorderPane>

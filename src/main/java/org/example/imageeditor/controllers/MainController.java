@@ -2,15 +2,18 @@ package org.example.imageeditor.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.imageeditor.Main;
 import org.example.imageeditor.Tool;
 import org.example.imageeditor.tools.Hand;
+import org.example.imageeditor.tools.PaintBrush;
 import org.example.imageeditor.tools.Zoom;
 import org.example.imageeditor.util.Constants;
 import org.example.imageeditor.util.ControllerMediator;
@@ -28,9 +31,14 @@ public class MainController {
     @FXML
     private ImageView zoomIcon;
     @FXML
+    private ImageView brushIcon;
+
+    @FXML
     private BorderPane borderPane;
     @FXML
     private ImageView mainImageView;
+    @FXML
+    private Canvas mainCanvas;
 
     @FXML
     private Label bottomLabel;
@@ -39,20 +47,16 @@ public class MainController {
     @FXML
     private Button zoomButton;
     @FXML
-    private MenuItem saveButton;
-    @FXML
-    private MenuItem exitButton;
-    @FXML
-    private MenuItem openButton;
+    private Button brushButton;
 
     private Image initialImage;
-    private FileChooser fileChooser;
 
     @FXML
     public void initialize() {
         try{
             handIcon.setImage(new Image(new FileInputStream(Constants.HAND_ICON_PATH)));
             zoomIcon.setImage(new Image(new FileInputStream(Constants.ZOOM_ICON_PATH)));
+            brushIcon.setImage(new Image(new FileInputStream(Constants.PAINT_BRUSH_ICON_PATH)));
         }
         catch (FileNotFoundException e) {
             System.err.println("Icons not found");
@@ -63,14 +67,19 @@ public class MainController {
             bottomLabel.setText(selectedFile.toURI().toString());
             initialImage = new Image(selectedFile.toURI().toString());
             mainImageView.setImage(initialImage);
+            mainCanvas.setWidth(initialImage.getWidth());
+            mainCanvas.setHeight(initialImage.getHeight());
         }
     }
 
     public void clickHand(){
-        handleTool(new Hand(mainImageView, handButton));
+        handleTool(new Hand(mainImageView, mainCanvas, handButton));
     }
     public void clickZoom(){
-        handleTool(new Zoom(mainImageView, zoomButton));
+        handleTool(new Zoom(mainImageView, mainCanvas, zoomButton));
+    }
+    public void clickBrush(){
+        handleTool(new PaintBrush(mainCanvas, brushButton));
     }
 
     public void handleTool(Tool tool){
@@ -114,6 +123,11 @@ public class MainController {
         mainImageView.setScaleY(1.0);
         mainImageView.setTranslateX(0.0);
         mainImageView.setTranslateY(0.0);
+        mainCanvas.getGraphicsContext2D().clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
+        mainCanvas.setScaleX(1.0);
+        mainCanvas.setScaleY(1.0);
+        mainCanvas.setTranslateX(0.0);
+        mainCanvas.setTranslateY(0.0);
     }
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
