@@ -34,9 +34,9 @@ public class Main extends Application {
         stage.setTitle(Constants.APPLICATION_TITLE);
         Image icon;
         try {
-            icon = new Image(new FileInputStream(Constants.APPLICATION_ICON_PATH));
+            icon = new Image(Main.class.getResourceAsStream(Constants.APPLICATION_ICON_PATH));
             stage.getIcons().add(icon);
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException e) {
             System.err.println("Icon not found");
         }
         scene.getStylesheets().add(Main.class.getResource(Constants.MAIN_CSS_PATH).toExternalForm());

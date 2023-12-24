@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="image-editor:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented paining">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Tool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/brush.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/brush.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/eraser.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/eraser.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/hand.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/hand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/svg/brush.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/svg/brush.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/svg/eraser.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/svg/eraser.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/svg/hand.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/svg/hand.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/svg/icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/svg/icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/svg/zoom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/svg/zoom.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/zoom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/zoom.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/OpenFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/OpenFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Zoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Zoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Eraser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Eraser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +72,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebi/OneDrive - Technical University of Cluj-Napoca/Documents/Code/Idea Projects/image-editor/assets/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/javafx-sdk-21.0.1/lib&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.33946642&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -74,11 +90,11 @@
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\target" />
+      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\target\app" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets\images\svg" />
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\css" />
-      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\fxml" />
-      <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\assets" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -95,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.imageeditor.Main" />
       <module name="image-editor" />
       <extension name="coverage">
@@ -122,13 +138,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.OpenFile" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.OpenFile" />
       <item itemvalue="Application.HelloApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.OpenFile" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -162,6 +177,8 @@
       <workItem from="1703266799260" duration="6200000" />
       <workItem from="1703339378110" duration="3449000" />
       <workItem from="1703371111273" duration="6270000" />
+      <workItem from="1703383916427" duration="2989000" />
+      <workItem from="1703387347488" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />

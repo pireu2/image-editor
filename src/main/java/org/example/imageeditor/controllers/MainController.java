@@ -62,12 +62,12 @@ public class MainController {
     @FXML
     public void initialize() {
         try{
-            handIcon.setImage(new Image(new FileInputStream(Constants.HAND_ICON_PATH)));
-            zoomIcon.setImage(new Image(new FileInputStream(Constants.ZOOM_ICON_PATH)));
-            brushIcon.setImage(new Image(new FileInputStream(Constants.PAINT_BRUSH_ICON_PATH)));
-            eraserIcon.setImage(new Image(new FileInputStream(Constants.ERASER_ICON_PATH)));
+            handIcon.setImage(new Image(getClass().getResourceAsStream(Constants.HAND_ICON_PATH)));
+            zoomIcon.setImage(new Image(getClass().getResourceAsStream(Constants.ZOOM_ICON_PATH)));
+            brushIcon.setImage(new Image(getClass().getResourceAsStream(Constants.PAINT_BRUSH_ICON_PATH)));
+            eraserIcon.setImage(new Image(getClass().getResourceAsStream(Constants.ERASER_ICON_PATH)));
         }
-        catch (FileNotFoundException e) {
+        catch (NullPointerException e) {
             System.err.println("Icons not found");
         }
 

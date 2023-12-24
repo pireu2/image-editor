@@ -19,9 +19,9 @@ public class OpenFile {
 
         Image icon;
         try {
-            icon = new Image(new FileInputStream(Constants.APPLICATION_ICON_PATH));
+            icon = new Image(OpenFile.class.getResourceAsStream(Constants.APPLICATION_ICON_PATH));
             stage.getIcons().add(icon);
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException e) {
             System.err.println("Icon not found");
         }
 

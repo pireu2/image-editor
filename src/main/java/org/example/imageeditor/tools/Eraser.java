@@ -28,6 +28,8 @@ public class Eraser implements Tool {
         canvas.getScene().setCursor(Cursor.CROSSHAIR);
         button.getStyleClass().add("selected-tool");
 
+        graphicsContext.setLineWidth(1.0);
+
         canvas.setOnMouseDragged(mouseEvent -> {
             double size = graphicsContext.getLineWidth();
             graphicsContext.clearRect(mouseEvent.getX() - size / 2, mouseEvent.getY() - size / 2, size, size);
