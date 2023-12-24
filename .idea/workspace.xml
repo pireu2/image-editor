@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented panning, zooming and reset for the main image view">
+    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented paining">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Tool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Zoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Zoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +160,8 @@
       <workItem from="1702989888496" duration="638000" />
       <workItem from="1703100917150" duration="4698000" />
       <workItem from="1703266799260" duration="6200000" />
-      <workItem from="1703339378110" duration="2694000" />
+      <workItem from="1703339378110" duration="3449000" />
+      <workItem from="1703371111273" duration="6270000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />
@@ -191,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703272796539</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented paining">
+      <option name="closed" value="true" />
+      <created>1703352305681</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703352305681</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +214,8 @@
     <MESSAGE value="Implemented file selection and image display functionality" />
     <MESSAGE value="Implemented open files while having other file opened, created start of menubar" />
     <MESSAGE value="Implemented panning, zooming and reset for the main image view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented panning, zooming and reset for the main image view" />
+    <MESSAGE value="Implemented paining" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented paining" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

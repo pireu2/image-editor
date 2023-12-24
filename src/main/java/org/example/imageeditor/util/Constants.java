@@ -8,6 +8,7 @@ public final class Constants {
     public static final String HAND_ICON_PATH = "assets/images/hand.png";
     public static final String ZOOM_ICON_PATH = "assets/images/zoom.png";
     public static final String PAINT_BRUSH_ICON_PATH = "assets/images/brush.png";
+    public static final String ERASER_ICON_PATH = "assets/images/eraser.png";
 
     public static final String OPEN_FILE_FXML_PATH = "fxml/OpenFile.fxml";
     public static final String MAIN_FXML_PATH = "fxml/Main.fxml";

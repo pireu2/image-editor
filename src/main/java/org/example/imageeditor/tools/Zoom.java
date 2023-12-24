@@ -4,6 +4,7 @@ import javafx.scene.Cursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 public class Zoom implements Tool{
     private Button button;
@@ -51,5 +52,10 @@ public class Zoom implements Tool{
         canvas.setOnMousePressed(null);
         canvas.setOnMouseDragged(null);
         button.getStyleClass().remove("selected-tool");
+    }
+
+    @Override
+    public VBox getSideMenu(){
+        return null;
     }
 }

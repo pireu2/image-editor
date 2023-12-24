@@ -4,6 +4,7 @@ import javafx.scene.Cursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 
 public class Hand implements Tool {
@@ -18,6 +19,7 @@ public class Hand implements Tool {
         this.button = button;
         this.canvas = canvas;
     }
+
     @Override
     public void activate(){
         canvas.getScene().setCursor(Cursor.HAND);
@@ -43,5 +45,10 @@ public class Hand implements Tool {
         canvas.setOnMousePressed(null);
         canvas.setOnMouseDragged(null);
         button.getStyleClass().remove("selected-tool");
+    }
+
+    @Override
+    public VBox getSideMenu(){
+        return null;
     }
 }

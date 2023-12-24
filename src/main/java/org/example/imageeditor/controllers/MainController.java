@@ -2,16 +2,19 @@ package org.example.imageeditor.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.imageeditor.Main;
 import org.example.imageeditor.Tool;
+import org.example.imageeditor.tools.Eraser;
 import org.example.imageeditor.tools.Hand;
 import org.example.imageeditor.tools.PaintBrush;
 import org.example.imageeditor.tools.Zoom;
@@ -22,7 +25,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Optional;
-import java.util.stream.IntStream;
 
 public class MainController {
 
@@ -32,6 +34,8 @@ public class MainController {
     private ImageView zoomIcon;
     @FXML
     private ImageView brushIcon;
+    @FXML
+    private ImageView eraserIcon;
 
     @FXML
     private BorderPane borderPane;
@@ -48,8 +52,12 @@ public class MainController {
     private Button zoomButton;
     @FXML
     private Button brushButton;
+    @FXML
+    private Button eraserButton;
 
     private Image initialImage;
+
+
 
     @FXML
     public void initialize() {
@@ -57,6 +65,7 @@ public class MainController {
             handIcon.setImage(new Image(new FileInputStream(Constants.HAND_ICON_PATH)));
             zoomIcon.setImage(new Image(new FileInputStream(Constants.ZOOM_ICON_PATH)));
             brushIcon.setImage(new Image(new FileInputStream(Constants.PAINT_BRUSH_ICON_PATH)));
+            eraserIcon.setImage(new Image(new FileInputStream(Constants.ERASER_ICON_PATH)));
         }
         catch (FileNotFoundException e) {
             System.err.println("Icons not found");
@@ -67,8 +76,25 @@ public class MainController {
             bottomLabel.setText(selectedFile.toURI().toString());
             initialImage = new Image(selectedFile.toURI().toString());
             mainImageView.setImage(initialImage);
-            mainCanvas.setWidth(initialImage.getWidth());
-            mainCanvas.setHeight(initialImage.getHeight());
+
+            if(initialImage.getWidth() > mainImageView.getFitWidth() || initialImage.getHeight() > mainImageView.getFitHeight()){
+                double scaleX = mainImageView.getFitWidth() / initialImage.getWidth();
+                double scaleY = mainImageView.getFitHeight() / initialImage.getHeight();
+                double scale = Math.min(scaleX, scaleY);
+                mainImageView.setFitWidth(initialImage.getWidth() * scale);
+                mainImageView.setFitHeight(initialImage.getHeight() * scale);
+            }
+            else{
+                mainImageView.setFitWidth(initialImage.getWidth());
+                mainImageView.setFitHeight(initialImage.getHeight());
+            }
+
+            mainCanvas.setWidth(mainImageView.getFitWidth());
+            mainCanvas.setHeight(mainImageView.getFitHeight());
+            mainCanvas.setTranslateX(mainImageView.getTranslateX());
+            mainCanvas.setTranslateY(mainImageView.getTranslateY());
+            BorderPane.setAlignment(mainImageView, Pos.CENTER);
+
         }
     }
 
@@ -82,17 +108,25 @@ public class MainController {
         handleTool(new PaintBrush(mainCanvas, brushButton));
     }
 
+    public void clickEraser(){
+        handleTool(new Eraser(mainCanvas, eraserButton));
+    }
+
     public void handleTool(Tool tool){
         Tool currentTool = ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class);
         if(currentTool != null){
             if(currentTool.getClass() == tool.getClass()){
                 currentTool.deactivate();
                 ControllerMediator.getInstance().put(Constants.TOOL_KEY, null);
+                borderPane.setRight(null);
                 return;
             }
             currentTool.deactivate();
+            borderPane.setRight(null);
         }
+
         ControllerMediator.getInstance().put(Constants.TOOL_KEY, tool);
+        borderPane.setRight(ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class).getSideMenu());
         tool.activate();
     }
 
