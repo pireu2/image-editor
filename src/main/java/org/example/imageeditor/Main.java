@@ -51,6 +51,8 @@ public class Main extends Application {
 
     static public void exit(Stage stage){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+        alertStage.getIcons().add(new Image(Main.class.getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
         alert.setTitle("Exit");
         alert.setHeaderText("Are you sure you want to exit?");
         alert.setContentText("All unsaved changes will be lost.");

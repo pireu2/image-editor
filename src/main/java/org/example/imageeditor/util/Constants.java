@@ -3,6 +3,8 @@ package org.example.imageeditor.util;
 public final class Constants {
     private Constants() {}
 
+    public static final String AUTHOR = "Duică Sebastian";
+
     public static final String APPLICATION_TITLE = "Image Editor";
     public static final String APPLICATION_ICON_PATH = "/assets/images/icon.png";
     public static final String HAND_ICON_PATH = "/assets/images/hand.png";

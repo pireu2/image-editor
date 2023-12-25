@@ -132,6 +132,8 @@ public class MainController {
 
     public void open() throws Exception{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
         alert.setTitle("Open File");
         alert.setHeaderText("Are you sure you want to open another file?");
         alert.setContentText("All unsaved changes will be lost.");
@@ -151,6 +153,20 @@ public class MainController {
         //TODO implement save
     }
 
+    public void about(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
+        alert.setTitle("About");
+        alert.setHeaderText("Image Editor");
+        alert.setContentText("This is a simple image editor made by me, " + Constants.AUTHOR + ".\n" +
+                "It was made as a project for the Object Oriented Programming course at the Technical University of Cluj-Napoca.\n" +
+                "It is free to use and modify.\n" +
+                "You can find the source code at: https://github.com/pireu2/image-editor");
+        alert.getButtonTypes().setAll(ButtonType.OK);
+        alert.showAndWait();
+    }
+
     public void reset(){
         mainImageView.setImage(initialImage);
         mainImageView.setScaleX(1.0);
@@ -165,6 +181,8 @@ public class MainController {
     }
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+        alertStage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
         alert.setTitle("Exit");
         alert.setHeaderText("Are you sure you want to exit?");
         alert.setContentText("All unsaved changes will be lost.");
