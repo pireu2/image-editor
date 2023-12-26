@@ -12,9 +12,9 @@ import javafx.scene.paint.Color;
 import org.example.imageeditor.Tool;
 
 public class PaintBrush implements Tool{
-    private Button button;
-    private Canvas canvas;
-    private GraphicsContext graphicsContext;
+    private final Button button;
+    private final Canvas canvas;
+    private final GraphicsContext graphicsContext;
 
     public PaintBrush(Canvas canvas, Button button){
         this.canvas = canvas;
@@ -78,7 +78,7 @@ public class PaintBrush implements Tool{
         strokeInput.setOnAction(event ->{
             try {
                 double newValue = Double.parseDouble(strokeInput.getText());
-                slider.setValue(Math.min(newValue,1000));
+                slider.setValue(Math.min(newValue,300));
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number format");
             }
@@ -87,7 +87,7 @@ public class PaintBrush implements Tool{
         strokeLabel.setAlignment(Pos.CENTER);
 
 
-        slider.setMax(1000.0);
+        slider.setMax(300);
         slider.setValue(1.0);
         slider.valueProperty().addListener((observable, oldValue, newValue) ->{
             graphicsContext.setLineWidth(newValue.doubleValue());

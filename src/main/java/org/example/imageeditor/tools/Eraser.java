@@ -13,9 +13,9 @@ import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 
 public class Eraser implements Tool {
-    private Button button;
-    private Canvas canvas;
-    private GraphicsContext graphicsContext;
+    private final Button button;
+    private final Canvas canvas;
+    private final GraphicsContext graphicsContext;
 
     public Eraser(Canvas canvas, Button button){
         this.canvas = canvas;
@@ -62,7 +62,7 @@ public class Eraser implements Tool {
         eraserInput.setOnAction(event ->{
             try {
                 double newValue = Double.parseDouble(eraserInput.getText());
-                slider.setValue(Math.min(newValue,1000));
+                slider.setValue(Math.min(newValue,300));
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number format");
             }
@@ -70,7 +70,7 @@ public class Eraser implements Tool {
         eraserLabel.getChildren().addAll(eraserText, eraserInput);
         eraserLabel.setAlignment(Pos.CENTER);
 
-        slider.setMax(1000.0);
+        slider.setMax(300);
         slider.setValue(1.0);
         slider.valueProperty().addListener((observable, oldValue, newValue) ->{
             graphicsContext.setLineWidth(newValue.doubleValue());

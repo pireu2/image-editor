@@ -20,6 +20,7 @@ import org.example.imageeditor.util.ControllerMediator;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Optional;
 
 public class MainController {
@@ -64,7 +65,7 @@ public class MainController {
     private CheckMenuItem invertFilterButton;
 
     private Image initialImage;
-    private ArrayList<CheckMenuItem> filterButtons = new ArrayList<>();
+    private final ArrayList<CheckMenuItem> filterButtons = new ArrayList<>();
 
 
 
@@ -76,11 +77,11 @@ public class MainController {
         filterButtons.add(invertFilterButton);
 
         try{
-            handIcon.setImage(new Image(getClass().getResourceAsStream(Constants.HAND_ICON_PATH)));
-            zoomIcon.setImage(new Image(getClass().getResourceAsStream(Constants.ZOOM_ICON_PATH)));
-            brushIcon.setImage(new Image(getClass().getResourceAsStream(Constants.PAINT_BRUSH_ICON_PATH)));
-            eraserIcon.setImage(new Image(getClass().getResourceAsStream(Constants.ERASER_ICON_PATH)));
-            customFilterIcon.setImage(new Image(getClass().getResourceAsStream(Constants.CUSTOM_FILTER_ICON_PATH)));
+            handIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.HAND_ICON_PATH))));
+            zoomIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.ZOOM_ICON_PATH))));
+            brushIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.PAINT_BRUSH_ICON_PATH))));
+            eraserIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.ERASER_ICON_PATH))));
+            customFilterIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.CUSTOM_FILTER_ICON_PATH))));
         }
         catch (NullPointerException e) {
             System.err.println("Icons not found");
@@ -116,7 +117,7 @@ public class MainController {
     public void open() throws Exception{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH))));
         alert.setTitle("Open File");
         alert.setHeaderText("Are you sure you want to open another file?");
         alert.setContentText("All unsaved changes will be lost.");
@@ -139,7 +140,7 @@ public class MainController {
     public void about(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH))));
         alert.setTitle("About");
         alert.setHeaderText("Image Editor");
         alert.setContentText("This is a simple image editor made by me, " + Constants.AUTHOR + ".\n" +
@@ -167,7 +168,7 @@ public class MainController {
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
-        alertStage.getIcons().add(new Image(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH)));
+        alertStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH))));
         alert.setTitle("Exit");
         alert.setHeaderText("Are you sure you want to exit?");
         alert.setContentText("All unsaved changes will be lost.");
@@ -192,7 +193,7 @@ public class MainController {
         handleTool(new Eraser(mainCanvas, eraserButton));
     }
     public void clickCustomFilter(){
-        handleTool(new CustomFilter(mainImageView, mainCanvas, customFilterButton));
+        handleTool(new CustomFilter(mainImageView, customFilterButton));
     }
     public void applyNoFilter() {
         deselectOtherFilterMenuItems(noFilterButton);

@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class ControllerMediator {
     private static ControllerMediator instance;
-    private Map<String, Object> dataMap;
+    private final Map<String, Object> dataMap;
 
     /**
      * Private constructor to prevent instantiation.

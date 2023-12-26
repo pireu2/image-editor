@@ -8,9 +8,9 @@ import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 
 public class Hand implements Tool {
-    private Button button;
-    private ImageView imageView;
-    private Canvas canvas;
+    private final Button button;
+    private final ImageView imageView;
+    private final Canvas canvas;
     private double initX;
     private double initY;
 

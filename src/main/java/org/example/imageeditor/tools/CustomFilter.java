@@ -1,7 +1,6 @@
 package org.example.imageeditor.tools;
 
 import javafx.geometry.Pos;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
@@ -10,12 +9,10 @@ import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 
 public class CustomFilter implements Tool {
-    private ImageView imageView;
-    private Button button;
-    private Canvas canvas;
-    private ColorAdjust colorAdjust = new ColorAdjust();
-    public CustomFilter(ImageView imageView, Canvas canvas, Button button){
-        this.canvas = canvas;
+    private final ImageView imageView;
+    private final Button button;
+    private final ColorAdjust colorAdjust = new ColorAdjust();
+    public CustomFilter(ImageView imageView, Button button){
         this.button = button;
         this.imageView = imageView;
     }
