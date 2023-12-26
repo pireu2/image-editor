@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -38,6 +39,14 @@
               <MenuItem mnemonicParsing="false" onAction="#reset" text="Reset" />
             </items>
           </Menu>
+            <Menu text="_Filter">
+              <items>
+                  <CheckMenuItem fx:id="noFilterButton" mnemonicParsing="false" onAction="#applyNoFilter" selected="true" text="No Filter" />
+                  <CheckMenuItem fx:id="grayscaleFilterButton" mnemonicParsing="false" onAction="#applyGrayscaleFilter" text="Grayscale" />
+                  <CheckMenuItem fx:id="sepiaFilterButton" mnemonicParsing="false" onAction="#applySepiaFilter" text="Sepia" />
+                  <CheckMenuItem fx:id="invertFilterButton" mnemonicParsing="false" onAction="#applyInvertFilter" text="Invert" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="true" text="_Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
@@ -74,6 +83,11 @@
              <Button fx:id="eraserButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickEraser" prefHeight="50.0" prefWidth="50.0" text="Hand" textAlignment="JUSTIFY" textOverrun="CLIP">
                  <graphic>
                      <ImageView fx:id="eraserIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                 </graphic>
+             </Button>
+             <Button fx:id="customFilterButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickCustomFilter" prefHeight="50.0" prefWidth="50.0" text="Hand" textAlignment="JUSTIFY" textOverrun="CLIP">
+                 <graphic>
+                     <ImageView fx:id="customFilterIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                  </graphic>
              </Button>
          </children>

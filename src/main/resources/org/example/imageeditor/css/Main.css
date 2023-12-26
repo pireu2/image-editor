@@ -44,7 +44,7 @@
 
 .bottom-label{
     -fx-font-size: 15;
-    -fx-font-family: "Montserrat";
+    -fx-font-family: "Poppins";
     -fx-text-fill: "white";
     -fx-padding: 0 0 5 5;
 }
@@ -68,13 +68,25 @@
     -fx-padding: 5 5 5 5;
 }
 
+.side-menu .button{
+    -fx-font-family: "Poppins";
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+    -fx-font-size: 18px;
+    -fx-background-color: #1565c0;
+    -fx-border-color: #153057;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 10px;
+}
+
 .spacing{
     -fx-padding: 5 5 5 5;
 }
 
 .color-picker{
     -fx-font-size: 15;
-    -fx-font-family: "Montserrat";
+    -fx-font-family: "Poppins";
     -fx-text-fill: "white";
     -fx-background-color: #252525;
     -fx-background-radius: 5px;
@@ -82,7 +94,7 @@
 
 .text-field{
     -fx-font-size: 15;
-    -fx-font-family: "Montserrat";
+    -fx-font-family: "Poppins";
     -fx-text-fill: "white";
     -fx-background-color: #252525;
 }

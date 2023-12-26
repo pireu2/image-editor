@@ -15,10 +15,10 @@
     -fx-text-fill: "white";
     -fx-alignment: center;
     -fx-font-size: 25px;
-    -fx-background-color: #1f4680;
+    -fx-background-color: #1565c0;
     -fx-border-color: #153057;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-min-width: 200px;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 10px;
 }
