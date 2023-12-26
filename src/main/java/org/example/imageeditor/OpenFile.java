@@ -7,8 +7,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.example.imageeditor.util.Constants;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class OpenFile {
 

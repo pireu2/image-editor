@@ -2,7 +2,6 @@ package org.example.imageeditor.controllers;
 
 import javafx.fxml.FXML;
 
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -11,7 +10,6 @@ import org.example.imageeditor.util.ControllerMediator;
 import org.example.imageeditor.Main;
 
 import java.io.File;
-import java.text.NumberFormat;
 
 public class OpenFileController {
 

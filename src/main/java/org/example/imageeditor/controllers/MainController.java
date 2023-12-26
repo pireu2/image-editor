@@ -173,7 +173,7 @@ public class MainController {
         alert.setContentText("All unsaved changes will be lost.");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.get() == ButtonType.OK){
+        if(result.isPresent() && result.get() == ButtonType.OK){
             Stage stage = (Stage) borderPane.getScene().getWindow();
             stage.close();
         }
