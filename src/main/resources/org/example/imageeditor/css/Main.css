@@ -98,3 +98,20 @@
     -fx-text-fill: "white";
     -fx-background-color: #252525;
 }
+
+.combo-box{
+    -fx-font-size: 15;
+    -fx-font-family: "Poppins";
+    -fx-text-fill: "white";
+    -fx-background-color: #252525;
+}
+
+.combo-box .list-cell {
+    -fx-font-family: "Poppins";
+    -fx-text-fill: "white";
+    -fx-background-color: #252525;
+}
+
+.combo-box-base{
+    -fx-background-color: #252525;
+}

@@ -1,5 +1,5 @@
 # image-editor
-Image editor made in java
+Image editor made in java with javafx.
 
 # Build
 ```shell

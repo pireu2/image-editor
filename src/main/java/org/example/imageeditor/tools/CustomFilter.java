@@ -156,6 +156,7 @@ public class CustomFilter implements Tool {
         customFilterMenu.getChildren().addAll(saturationLabel, saturationSlider,
                 hueLabel, hueSlider, contrastLabel, contrastSlider, brightnessLabel,
                 brightnessSlider, resetButtonContainer);
+        customFilterMenu.setAlignment(Pos.CENTER);
 
         spacing.getChildren().add(customFilterMenu);
         return spacing;

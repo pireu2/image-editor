@@ -90,6 +90,11 @@
                      <ImageView fx:id="customFilterIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                  </graphic>
              </Button>
+             <Button fx:id="textButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickText" prefHeight="50.0" prefWidth="50.0" text="Hand" textAlignment="JUSTIFY" textOverrun="CLIP">
+                 <graphic>
+                     <ImageView fx:id="textIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                 </graphic>
+             </Button>
          </children>
          <padding>
             <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />

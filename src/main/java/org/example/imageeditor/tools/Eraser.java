@@ -77,6 +77,7 @@ public class Eraser implements Tool {
             eraserInput.setText(String.format("%.2f", newValue.doubleValue()));
         });
         brushMenu.getChildren().addAll(eraserLabel, slider);
+        brushMenu.setAlignment(Pos.CENTER);
         spacing.getChildren().add(brushMenu);
         return spacing;
     }

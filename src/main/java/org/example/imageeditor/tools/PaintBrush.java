@@ -94,6 +94,7 @@ public class PaintBrush implements Tool{
             strokeInput.setText(String.format("%.2f", newValue.doubleValue()));
         });
         brushMenu.getChildren().addAll(colorLabel, colorPicker, strokeLabel, slider);
+        brushMenu.setAlignment(Pos.CENTER);
         spacing.getChildren().add(brushMenu);
         return spacing;
     }

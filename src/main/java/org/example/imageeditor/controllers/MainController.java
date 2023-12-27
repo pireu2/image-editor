@@ -35,6 +35,8 @@ public class MainController {
     private ImageView eraserIcon;
     @FXML
     private ImageView customFilterIcon;
+    @FXML
+    private ImageView textIcon;
 
     @FXML
     private BorderPane borderPane;
@@ -55,6 +57,8 @@ public class MainController {
     private Button eraserButton;
     @FXML
     private Button customFilterButton;
+    @FXML
+    private Button textButton;
     @FXML
     private CheckMenuItem noFilterButton;
     @FXML
@@ -82,6 +86,7 @@ public class MainController {
             brushIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.PAINT_BRUSH_ICON_PATH))));
             eraserIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.ERASER_ICON_PATH))));
             customFilterIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.CUSTOM_FILTER_ICON_PATH))));
+            textIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.TEXT_ICON_PATH))));
         }
         catch (NullPointerException e) {
             System.err.println("Icons not found");
@@ -194,6 +199,9 @@ public class MainController {
     }
     public void clickCustomFilter(){
         handleTool(new CustomFilter(mainImageView, customFilterButton));
+    }
+    public void clickText(){
+        handleTool(new Text(mainCanvas, textButton));
     }
     public void applyNoFilter() {
         deselectOtherFilterMenuItems(noFilterButton);
