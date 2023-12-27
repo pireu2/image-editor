@@ -1,7 +1,8 @@
 module org.example.imageeditor {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires javafx.swing;
+    requires java.desktop;
 
     opens org.example.imageeditor to javafx.fxml;
     exports org.example.imageeditor;

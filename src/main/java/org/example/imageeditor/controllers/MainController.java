@@ -2,11 +2,15 @@ package org.example.imageeditor.controllers;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.imageeditor.Filter;
 import org.example.imageeditor.Tool;
@@ -18,7 +22,10 @@ import org.example.imageeditor.tools.*;
 import org.example.imageeditor.util.Constants;
 import org.example.imageeditor.util.ControllerMediator;
 
+import javax.imageio.ImageIO;
+import javafx.embed.swing.SwingFXUtils;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,14 +44,12 @@ public class MainController {
     private ImageView customFilterIcon;
     @FXML
     private ImageView textIcon;
-
     @FXML
     private BorderPane borderPane;
     @FXML
     private ImageView mainImageView;
     @FXML
     private Canvas mainCanvas;
-
     @FXML
     private Label bottomLabel;
     @FXML
@@ -71,8 +76,6 @@ public class MainController {
     private Image initialImage;
     private final ArrayList<CheckMenuItem> filterButtons = new ArrayList<>();
 
-
-
     @FXML
     public void initialize() {
         filterButtons.add(noFilterButton);
@@ -97,23 +100,7 @@ public class MainController {
             bottomLabel.setText(selectedFile.toURI().toString());
             initialImage = new Image(selectedFile.toURI().toString());
             mainImageView.setImage(initialImage);
-
-            if(initialImage.getWidth() > mainImageView.getFitWidth() || initialImage.getHeight() > mainImageView.getFitHeight()){
-                double scaleX = mainImageView.getFitWidth() / initialImage.getWidth();
-                double scaleY = mainImageView.getFitHeight() / initialImage.getHeight();
-                double scale = Math.min(scaleX, scaleY);
-                mainImageView.setFitWidth(initialImage.getWidth() * scale);
-                mainImageView.setFitHeight(initialImage.getHeight() * scale);
-            }
-            else{
-                mainImageView.setFitWidth(initialImage.getWidth());
-                mainImageView.setFitHeight(initialImage.getHeight());
-            }
-
-            mainCanvas.setWidth(mainImageView.getFitWidth());
-            mainCanvas.setHeight(mainImageView.getFitHeight());
-            mainCanvas.setTranslateX(mainImageView.getTranslateX());
-            mainCanvas.setTranslateY(mainImageView.getTranslateY());
+            scaleImage(initialImage, mainImageView, mainCanvas);
             BorderPane.setAlignment(mainImageView, Pos.CENTER);
 
         }
@@ -139,9 +126,33 @@ public class MainController {
         }
     }
     public void save(){
-        //TODO implement save
-    }
+        undoZoomAndPan(mainImageView, mainCanvas);
+        BorderPane.setAlignment(mainImageView, Pos.CENTER);
+        WritableImage writableImage = new WritableImage((int) mainImageView.getFitWidth(),
+                (int) mainImageView.getFitHeight());
+        SnapshotParameters parameters = new SnapshotParameters();
 
+        parameters.setViewport(new  Rectangle2D(mainImageView.getLayoutX() + mainImageView.getParent().getLayoutX(),
+                mainImageView.getLayoutY() + mainImageView.getParent().getLayoutY(),
+                mainImageView.getFitWidth(), mainImageView.getFitHeight()));
+        borderPane.snapshot(parameters, writableImage);
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save File");
+        fileChooser.setInitialDirectory(new File(Constants.PICTURES_DIRECTORY_PATH));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"));
+        File file = fileChooser.showSaveDialog(borderPane.getScene().getWindow());
+        if(file!=null) {
+            try {
+                if(!file.getAbsolutePath().endsWith(".png")){
+                    file = new File(file.getAbsolutePath() + ".png");
+                }
+                ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
+            } catch (IOException e) {
+                System.err.println("Failed to save image: " + e);
+            }
+        }
+    }
     public void about(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -155,20 +166,12 @@ public class MainController {
         alert.getButtonTypes().setAll(ButtonType.OK);
         alert.showAndWait();
     }
-
     public void reset(){
         mainImageView.setEffect(null);
         mainImageView.setImage(initialImage);
-        mainImageView.setScaleX(1.0);
-        mainImageView.setScaleY(1.0);
-        mainImageView.setTranslateX(0.0);
-        mainImageView.setTranslateY(0.0);
         mainCanvas.setEffect(null);
         mainCanvas.getGraphicsContext2D().clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
-        mainCanvas.setScaleX(1.0);
-        mainCanvas.setScaleY(1.0);
-        mainCanvas.setTranslateX(0.0);
-        mainCanvas.setTranslateY(0.0);
+        undoZoomAndPan(mainImageView, mainCanvas);
     }
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -252,8 +255,31 @@ public class MainController {
         borderPane.setRight(ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class).getSideMenu());
         tool.activate();
     }
-
-
-
-
+    private void scaleImage(Image initialImage, ImageView imageView, Canvas canvas){
+        if(initialImage.getWidth() > imageView.getFitWidth() || initialImage.getHeight() > imageView.getFitHeight()){
+            double scaleX = imageView.getFitWidth() / initialImage.getWidth();
+            double scaleY = imageView.getFitHeight() / initialImage.getHeight();
+            double scale = Math.min(scaleX, scaleY);
+            imageView.setFitWidth(initialImage.getWidth() * scale);
+            imageView.setFitHeight(initialImage.getHeight() * scale);
+        }
+        else{
+            imageView.setFitWidth(initialImage.getWidth());
+            imageView.setFitHeight(initialImage.getHeight());
+        }
+        canvas.setWidth(imageView.getFitWidth());
+        canvas.setHeight(imageView.getFitHeight());
+        canvas.setTranslateX(imageView.getTranslateX());
+        canvas.setTranslateY(imageView.getTranslateY());
+    }
+    private void undoZoomAndPan(ImageView imageView, Canvas canvas){
+        canvas.setScaleX(1.0);
+        canvas.setScaleY(1.0);
+        canvas.setTranslateX(0.0);
+        canvas.setTranslateY(0.0);
+        imageView.setScaleX(1.0);
+        imageView.setScaleY(1.0);
+        imageView.setTranslateX(0.0);
+        imageView.setTranslateY(0.0);
+    }
 }

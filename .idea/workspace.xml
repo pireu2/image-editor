@@ -9,16 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Resolved warnings">
+    <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Implemented Text tool">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/CustomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/CustomFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Eraser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/Eraser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/tools/PaintBrush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/css/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +168,7 @@
       <workItem from="1703598483000" duration="5245000" />
       <workItem from="1703603833477" duration="325000" />
       <workItem from="1703604615840" duration="486000" />
-      <workItem from="1703688903031" duration="3431000" />
+      <workItem from="1703688903031" duration="8751000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />
@@ -263,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703605063906</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implemented Text tool">
+      <option name="closed" value="true" />
+      <created>1703694738845</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703694738845</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +295,8 @@
     <MESSAGE value="Implemented some pre-made simple filters for the images and a custom filter tool." />
     <MESSAGE value="Removed unused imports" />
     <MESSAGE value="Resolved warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved warnings" />
+    <MESSAGE value="Implemented Text tool" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Text tool" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
