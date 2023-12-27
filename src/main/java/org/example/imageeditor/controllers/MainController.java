@@ -105,7 +105,6 @@ public class MainController {
 
         }
     }
-
     public void open() throws Exception{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -158,7 +157,7 @@ public class MainController {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(Constants.APPLICATION_ICON_PATH))));
         alert.setTitle("About");
-        alert.setHeaderText("Image Editor");
+        alert.setHeaderText("Image Editor v1.0");
         alert.setContentText("This is a simple image editor made by me, " + Constants.AUTHOR + ".\n" +
                 "It was made as a project for the Object Oriented Programming course at the Technical University of Cluj-Napoca.\n" +
                 "It is free to use and modify.\n" +
