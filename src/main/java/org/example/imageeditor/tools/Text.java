@@ -11,6 +11,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import org.example.imageeditor.Tool;
 
+/**
+ * The Text class implements the Tool interface and represents a text tool for an image editor.
+ * It provides functionality to add text to an image and a canvas.
+ * The text operation is performed by clicking the mouse.
+ */
 public class Text implements Tool {
     private String fontName = "Arial";
     private double fontSize = 12;
@@ -19,12 +24,23 @@ public class Text implements Tool {
     final private Button button;
     final private Canvas canvas;
     private final GraphicsContext graphicsContext;
+
+    /**
+     * Constructs a new Text object with the specified canvas and button.
+     * @param canvas the canvas to which the text will be added
+     * @param button the button associated with this tool
+     */
     public Text(Canvas canvas, Button button){
         this.canvas = canvas;
         this.button = button;
         this.graphicsContext = canvas.getGraphicsContext2D();
     }
 
+    /**
+     * Activates the text tool.
+     * The cursor is changed to a crosshair and the button is highlighted.
+     * Mouse press events are set up to add the text to the canvas.
+     */
     @Override
     public void activate() {
         canvas.getScene().setCursor(Cursor.CROSSHAIR);
@@ -35,6 +51,11 @@ public class Text implements Tool {
         canvas.setOnMousePressed(mouseEvent -> graphicsContext.fillText(text, mouseEvent.getX(), mouseEvent.getY()));
     }
 
+    /**
+     * Deactivates the text tool.
+     * The cursor is changed back to the default and the button is unhighlighted.
+     * Mouse press events are removed.
+     */
     @Override
     public void deactivate() {
         canvas.getScene().setCursor(Cursor.DEFAULT);
@@ -42,6 +63,11 @@ public class Text implements Tool {
         button.getStyleClass().remove("selected-tool");
     }
 
+    /**
+     * Returns the side menu associated with the text tool.
+     * The side menu allows the user to choose the font, size, and color of the text.
+     * @return a VBox containing the side menu for the text tool
+     */
     @Override
     public VBox getSideMenu(){
         VBox spacing = new VBox();

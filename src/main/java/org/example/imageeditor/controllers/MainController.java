@@ -21,7 +21,6 @@ import org.example.imageeditor.filters.SepiaFilter;
 import org.example.imageeditor.tools.*;
 import org.example.imageeditor.util.Constants;
 import org.example.imageeditor.util.ControllerMediator;
-
 import javax.imageio.ImageIO;
 import javafx.embed.swing.SwingFXUtils;
 import java.io.File;
@@ -30,6 +29,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * The MainController class is responsible for handling the main operations in the image editor.
+ * It provides methods to open and save files, apply filters and tools, and handle UI events.
+ */
 public class MainController {
 
     @FXML
@@ -76,6 +79,10 @@ public class MainController {
     private Image initialImage;
     private final ArrayList<CheckMenuItem> filterButtons = new ArrayList<>();
 
+    /**
+     * Initializes the controller.
+     * This method is called after all @FXML annotated members have been injected.
+     */
     @FXML
     public void initialize() {
         filterButtons.add(noFilterButton);
@@ -105,6 +112,11 @@ public class MainController {
 
         }
     }
+
+    /**
+     * Opens a new file.
+     * @throws Exception if there is an error opening the file.
+     */
     public void open() throws Exception{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -124,6 +136,10 @@ public class MainController {
             openFileController.openFile();
         }
     }
+
+    /**
+     * Saves the current image to a file.
+     */
     public void save(){
         undoZoomAndPan(mainImageView, mainCanvas);
         BorderPane.setAlignment(mainImageView, Pos.CENTER);
@@ -152,6 +168,10 @@ public class MainController {
             }
         }
     }
+
+    /**
+     * Shows information about the application.
+     */
     public void about(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -165,6 +185,10 @@ public class MainController {
         alert.getButtonTypes().setAll(ButtonType.OK);
         alert.showAndWait();
     }
+
+    /**
+     * Resets the image to its initial state.
+     */
     public void reset(){
         mainImageView.setEffect(null);
         mainImageView.setImage(initialImage);
@@ -172,6 +196,10 @@ public class MainController {
         mainCanvas.getGraphicsContext2D().clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
         undoZoomAndPan(mainImageView, mainCanvas);
     }
+
+    /**
+     * Exits the application.
+     */
     public void exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -187,41 +215,84 @@ public class MainController {
         }
     }
 
+    /**
+     * Handles the click event of the hand tool button.
+     */
     public void clickHand(){
         handleTool(new Hand(mainImageView, mainCanvas, handButton));
     }
+
+    /**
+     * Handles the click event of the zoom tool button.
+     */
     public void clickZoom(){
         handleTool(new Zoom(mainImageView, mainCanvas, zoomButton));
     }
+
+    /**
+     * Handles the click event of the brush tool button.
+     */
     public void clickBrush(){
         handleTool(new PaintBrush(mainCanvas, brushButton));
     }
+
+    /**
+     * Handles the click event of the eraser tool button.
+     */
     public void clickEraser(){
         handleTool(new Eraser(mainCanvas, eraserButton));
     }
+
+    /**
+     * Handles the click event of the custom filter tool button.
+     */
     public void clickCustomFilter(){
         handleTool(new CustomFilter(mainImageView, customFilterButton));
     }
+
+    /**
+     * Handles the click event of the text tool button.
+     */
     public void clickText(){
         handleTool(new Text(mainCanvas, textButton));
     }
+
+    /**
+     * Applies the no filter to the image.
+     */
     public void applyNoFilter() {
         deselectOtherFilterMenuItems(noFilterButton);
         AbstractFilter.deactivate(mainImageView, mainCanvas);
     }
+
+    /**
+     * Applies the grayscale filter to the image.
+     */
     public void applyGrayscaleFilter() {
         deselectOtherFilterMenuItems(grayscaleFilterButton);
         applyFilter(new GrayscaleFilter());
     }
+
+    /**
+     * Applies the sepia filter to the image.
+     */
     public void applySepiaFilter(){
         deselectOtherFilterMenuItems(sepiaFilterButton);
         applyFilter(new SepiaFilter());
     }
+
+    /**
+     * Applies the invert filter to the image.
+     */
     public void applyInvertFilter(){
         deselectOtherFilterMenuItems(sepiaFilterButton);
         applyFilter(new InvertFilter());
     }
 
+    /**
+     * Deselects other filter menu items except the selected one.
+     * @param selectedFilterButton the selected filter button
+     */
     private void deselectOtherFilterMenuItems(CheckMenuItem selectedFilterButton){
         for(CheckMenuItem filterButton : filterButtons){
             if(filterButton != selectedFilterButton){
@@ -229,6 +300,11 @@ public class MainController {
             }
         }
     }
+
+    /**
+     * Applies the specified filter to the image.
+     * @param filter the filter to be applied
+     */
     private void applyFilter(Filter filter) {
         if(filter != null){
             filter.apply(mainImageView, mainCanvas);
@@ -237,6 +313,11 @@ public class MainController {
             AbstractFilter.deactivate(mainImageView, mainCanvas);
         }
     }
+
+    /**
+     * Handles the tool selection and activation.
+     * @param tool the tool to be handled
+     */
     private void handleTool(Tool tool){
         Tool currentTool = ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class);
         if(currentTool != null){
@@ -254,6 +335,13 @@ public class MainController {
         borderPane.setRight(ControllerMediator.getInstance().get(Constants.TOOL_KEY, Tool.class).getSideMenu());
         tool.activate();
     }
+
+    /**
+     * Scales the image to fit within the image view and canvas.
+     * @param initialImage the initial image
+     * @param imageView the image view
+     * @param canvas the canvas
+     */
     private void scaleImage(Image initialImage, ImageView imageView, Canvas canvas){
         if(initialImage.getWidth() > imageView.getFitWidth() || initialImage.getHeight() > imageView.getFitHeight()){
             double scaleX = imageView.getFitWidth() / initialImage.getWidth();
@@ -271,6 +359,12 @@ public class MainController {
         canvas.setTranslateX(imageView.getTranslateX());
         canvas.setTranslateY(imageView.getTranslateY());
     }
+
+    /**
+     * Resets the zoom and pan of the image view and canvas to their initial state.
+     * @param imageView the image view
+     * @param canvas the canvas
+     */
     private void undoZoomAndPan(ImageView imageView, Canvas canvas){
         canvas.setScaleX(1.0);
         canvas.setScaleY(1.0);

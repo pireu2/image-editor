@@ -11,17 +11,32 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import org.example.imageeditor.Tool;
 
+/**
+ * The PaintBrush class implements the Tool interface and represents a paint brush tool for an image editor.
+ * It provides functionality to draw on an image and a canvas.
+ * The drawing operation is performed by pressing and dragging the mouse.
+ */
 public class PaintBrush implements Tool{
     private final Button button;
     private final Canvas canvas;
     private final GraphicsContext graphicsContext;
 
+    /**
+     * Constructs a new PaintBrush object with the specified canvas and button.
+     * @param canvas the canvas on which the drawing will be done
+     * @param button the button associated with this tool
+     */
     public PaintBrush(Canvas canvas, Button button){
         this.canvas = canvas;
         this.button = button;
         this.graphicsContext = canvas.getGraphicsContext2D();
     }
 
+    /**
+     * Activates the paint brush tool.
+     * The cursor is changed to a crosshair and the button is highlighted.
+     * Mouse press and drag events are set up to perform the drawing operation.
+     */
     @Override
     public void activate(){
         canvas.getScene().setCursor(Cursor.CROSSHAIR);
@@ -42,6 +57,11 @@ public class PaintBrush implements Tool{
         });
     }
 
+    /**
+     * Deactivates the paint brush tool.
+     * The cursor is changed back to the default and the button is unhighlighted.
+     * Mouse press and drag events are removed.
+     */
     @Override
     public void deactivate() {
         canvas.getScene().setCursor(Cursor.DEFAULT);
@@ -50,6 +70,11 @@ public class PaintBrush implements Tool{
         button.getStyleClass().remove("selected-tool");
     }
 
+    /**
+     * Returns the side menu associated with the paint brush tool.
+     * The side menu allows the user to choose the color and size of the brush.
+     * @return a VBox containing the side menu for the paint brush tool
+     */
     @Override
     public VBox getSideMenu(){
         VBox spacing = new VBox();

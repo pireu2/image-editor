@@ -11,12 +11,23 @@ import org.example.imageeditor.Main;
 
 import java.io.File;
 
+/**
+ * The OpenFileController class is responsible for handling the open file operation in the image editor.
+ * It provides a method to open a file chooser dialog and select an image file.
+ * The selected file is then stored in the ControllerMediator and the main stage of the application is shown.
+ */
 public class OpenFileController {
 
     @FXML
     private VBox vBox;
     private Stage stage;
 
+    /**
+     * Opens a file chooser dialog to select an image file.
+     * The selected file is stored in the ControllerMediator and the main stage of the application is shown.
+     * If no file is selected, the method does nothing.
+     * @throws Exception if there is an error loading the main stage.
+     */
     public void openFile() throws Exception{
         Stage currentStage = vBox == null ? stage : (Stage) vBox.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
@@ -36,6 +47,11 @@ public class OpenFileController {
             currentStage.close();
         }
     }
+
+    /**
+     * Sets the stage for this controller.
+     * @param stage the stage to be set
+     */
     public void setStage(Stage stage){
         this.stage = stage;
     }

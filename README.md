@@ -1,7 +1,15 @@
 # image-editor
-Image editor made in java with javafx.
+This is an image editor application built in Java using JavaFX. It provides various functionalities such as opening and saving files, applying filters and tools, and handling UI events.
 
-# Build
+## Features
+
+- Open and save image files
+- Apply various filters including grayscale, sepia, invert, and custom filters
+- Use various tools including hand, zoom, paint brush, eraser, custom filter, and text tools
+- Reset the image to its initial state
+- Exit the application
+
+## Build
 ```shell
 mvn clean package
 mv target/image-editor-1.0-SNAPSHOT.jar target/app/

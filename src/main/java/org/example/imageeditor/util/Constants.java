@@ -1,5 +1,11 @@
 package org.example.imageeditor.util;
 
+/**
+ * The Constants class provides a central location for the application's constants.
+ * It includes paths for icons, FXML files, CSS files, and keys for data storage.
+ * It also includes the application title and the author's name.
+ * This class cannot be instantiated.
+ */
 public final class Constants {
     private Constants() {}
 

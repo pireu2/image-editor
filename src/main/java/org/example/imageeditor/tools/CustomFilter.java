@@ -8,24 +8,51 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.example.imageeditor.Tool;
 
+/**
+ * The CustomFilter class implements the Tool interface and represents a custom filter tool for an image editor.
+ * It provides functionality to adjust the saturation, hue, contrast, and brightness of an image.
+ * The adjustments are performed by moving sliders in the side menu.
+ */
 public class CustomFilter implements Tool {
     private final ImageView imageView;
     private final Button button;
     private final ColorAdjust colorAdjust = new ColorAdjust();
+
+    /**
+     * Constructs a new CustomFilter object with the specified image view and button.
+     * @param imageView the image view to be adjusted
+     * @param button the button associated with this tool
+     */
     public CustomFilter(ImageView imageView, Button button){
         this.button = button;
         this.imageView = imageView;
     }
+
+    /**
+     * Activates the custom filter tool.
+     * The button is highlighted and the color adjust effect is applied to the image view.
+     */
     @Override
     public void activate() {
         button.getStyleClass().add("selected-tool");
         imageView.setEffect(colorAdjust);
         imageView.setEffect(colorAdjust);
     }
+
+    /**
+     * Deactivates the custom filter tool.
+     * The button is unhighlighted.
+     */
     @Override
     public void deactivate() {
         button.getStyleClass().remove("selected-tool");
     }
+
+    /**
+     * Returns the side menu associated with the custom filter tool.
+     * The side menu allows the user to adjust the saturation, hue, contrast, and brightness of the image.
+     * @return a VBox containing the side menu for the custom filter tool
+     */
     @Override
     public VBox getSideMenu() {
         VBox spacing = new VBox();
