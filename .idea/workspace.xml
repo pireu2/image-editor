@@ -10,8 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef94a43c-b5be-4d5d-a262-2b02a5ae21a3" name="Changes" comment="Added tests">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/imageeditor/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/imageeditor/fxml/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +62,10 @@
     &quot;JUnit.MainControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/javafx-sdk-21.0.1/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebi/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -85,7 +90,7 @@
       <recent name="C:\Users\sebi\OneDrive - Technical University of Cluj-Napoca\Documents\Code\Idea Projects\image-editor\src\main\resources\org\example\imageeditor\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ControllerMediatorTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ConstantsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.imageeditor.tests.ConstantsTest" />
       <module name="image-editor" />
@@ -223,6 +228,11 @@
       <workItem from="1703780139992" duration="2671000" />
       <workItem from="1703866734787" duration="2489000" />
       <workItem from="1703869769472" duration="2146000" />
+      <workItem from="1704636573594" duration="3000" />
+      <workItem from="1704713827162" duration="85000" />
+      <workItem from="1704714414731" duration="1108000" />
+      <workItem from="1704715541074" duration="935000" />
+      <workItem from="1704721793546" duration="322000" />
     </task>
     <task id="LOCAL-00001" summary="Remade project">
       <option name="closed" value="true" />

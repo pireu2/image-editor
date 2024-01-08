@@ -26,6 +26,8 @@ public class Main extends Application {
      * @param args command line arguments
      */
     public static void main(String[] args){
+        //TODO make app not interact with windows scaling
+        //BUG if scaling is to big, side menu doesnt work
         Application.launch(args);
     }
 

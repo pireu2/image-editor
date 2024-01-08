@@ -18,7 +18,6 @@
     <center>
         <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-
                 <ImageView fx:id="mainImageView" fitHeight="1000.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true" />
                 <Canvas fx:id="mainCanvas" height="1000.0" width="1600.0" />
             </children>
